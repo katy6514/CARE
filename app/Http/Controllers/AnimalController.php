@@ -10,15 +10,28 @@ class AnimalController extends Controller
 {
 
     public function getIndex(){
-        return 'Display all the animals';
+        return view('animals.index');
+        // return 'Display all the animals';
     }
 
     public function getCreate(){
-        return 'Display form for adding animal';
+        return view('animals.create');
+        // return 'Display form for adding animal';
     }
 
-    public function postStore(){
-        return 'Process form to add animal to database';
+    public function postStore(Request $request){
+
+        # validate the $Request object
+        $this->validate($request,[
+            'name' => 'required',
+            'sex' => 'required',
+            'enclosure' => 'required',
+        ]);
+
+
+
+        $name = $request->input('name');
+        return 'Process adding new animal: '.$name;
     }
 
     public function getShow($id){
@@ -26,7 +39,8 @@ class AnimalController extends Controller
     }
 
     public function getEdit(){
-        return 'Display form for editing animal\'s data';
+        return view('animals.edit');
+        // return 'Display form for editing animal\'s data';
     }
 
     public function putUpdate(){
