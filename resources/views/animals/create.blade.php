@@ -35,6 +35,17 @@
         </div>
 
         <div class='form-group'>
+            <label for='sub_species'>Sub-Species:</label>
+            <select id='sub_species' name='sub_species'>
+                @foreach($sub_species_for_dropdown as $sub_species)
+                    <option value='{{ $sub_species }}'>
+                        {{ ucfirst($sub_species) }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class='form-group'>
             {!! Form::label('Gender: ') !!} <br>
             {!! Form::radio('sex', 'male') !!} Male
             {!! Form::radio('sex', 'female', true) !!} Female

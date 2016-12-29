@@ -3,6 +3,8 @@
 namespace CARE\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
+use CARE\Animal;
 
 use CARE\Http\Controllers\Controller;
 
@@ -10,12 +12,21 @@ class AnimalController extends Controller
 {
 
     public function getIndex(){
-        return view('animals.index');
+
+        $animals = DB::table('animals')->get();
+
+        return view('animals.index')
+                ->with('animals', $animals);
         // return 'Display all the animals';
     }
 
     public function getCreate(){
-        return view('animals.create');
+
+        $sub_species_for_dropdown = Animal::subSpeciesForDropdown();
+
+        return view('animals.create')->with([
+            'sub_species_for_dropdown' => $sub_species_for_dropdown
+        ]);
         // return 'Display form for adding animal';
     }
 
