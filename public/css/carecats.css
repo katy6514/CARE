@@ -1,0 +1,59 @@
+.form-group{
+    width: 50%;
+}
+
+
+.navbar-inverse {
+    opacity: 50%;
+}
+
+/* ------------------------------------------------
+    Footer
+------------------------------------------------ */
+
+footer {
+    width: 100%;
+    padding:12px 50px;
+    background-color: #e6e6e6;
+}
+
+.footer_content{
+	width: 96%;
+	margin: 0 auto;
+}
+#social-links{
+	width: 300px;
+	margin:10px;
+	margin-left: 0px;
+	float:left;
+	height: 45px;
+}
+#social-links ul{
+    list-style: none;
+    list-style-type: none;
+}
+#social-links li{
+	padding:0;
+	margin: 0;
+    float:left;
+	width: 13%;
+}
+#social-links a{
+	padding:5px;
+	padding-left:0px;
+	margin: 0;
+}
+#social-links i{
+	margin: 0;
+	padding:0;
+}
+
+#site-search{
+	margin-right: 0;
+	padding-right: 0;
+	/*width: auto;*/
+	float:right;
+}
+#site-search input{
+	width: 280px;
+}

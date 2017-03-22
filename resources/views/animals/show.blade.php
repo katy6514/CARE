@@ -2,11 +2,11 @@
 
 @section('title')
     Show Animal
-@stop
+@endsection
 
 @section('head')
     <!-- Add animal-specific style file here -->
-@stop
+@endsection
 
 @section('main_content')
     @if($id)
@@ -14,8 +14,8 @@
     @else
         <h1>No Animal Chosen</h1>
     @endif
-@stop
+@endsection
 
 @section('scripts')
     <!-- Add animal-specific scripts here -->
-@stop
+@endsection
