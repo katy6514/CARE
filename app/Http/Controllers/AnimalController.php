@@ -46,7 +46,23 @@ class AnimalController extends Controller
     }
 
     public function getShow($id){
-        return view('animals.show')->with('id', $id);
+        return 'Display one animal: '.$id;
+
+
+        // return view('animals.show')->with('id', $id);
+
+        // $animal = \CareCats\Animal::find($id);
+        //
+        // $img = Image::make('img/babyLion1.jpg');
+        //
+        //         if(is_null($animal)) {
+        //             \Session::flash('message','Animal not found');
+        //             return redirect('/animals');
+        //         } else {
+        //             return view('animal')
+        //                 ->with('img',$img)
+        //                 ->with('animal',$animal);
+        //         }
     }
 
     public function getEdit(){
