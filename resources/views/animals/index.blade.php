@@ -12,9 +12,6 @@
     <h1>All the animals</h1>
 
 
-    @foreach($animals as $animal)
-        <h2>{{ $animal->name }}</h2>
-    @endforeach
 
 @stop
 

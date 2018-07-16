@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Create Animal
+    Add an Animal
 @stop
 
 @section('head')
@@ -19,7 +19,7 @@
         </ul>
     @endif
 
-    <form method='POST' action='/animals'>
+    <form method='POST' action='/animals/create'>
         {{ csrf_field() }}
         <!-- <input type='text' name='name'> -->
 
@@ -34,16 +34,6 @@
                     ))!!}
         </div>
 
-        <div class='form-group'>
-            <label for='sub_species'>Sub-Species:</label>
-            <select id='sub_species' name='sub_species'>
-                @foreach($sub_species_for_dropdown as $sub_species)
-                    <option value='{{ $sub_species }}'>
-                        {{ ucfirst($sub_species) }}
-                    </option>
-                @endforeach
-            </select>
-        </div>
 
         <div class='form-group'>
             {!! Form::label('Gender: ') !!} <br>

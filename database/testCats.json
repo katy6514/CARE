@@ -1,0 +1,17 @@
+{
+  "Samson": {
+    "id" : 0,
+    "subspecies": "Lion",
+    "age" : 13,
+  },
+    "June": {
+        "id" : 1,
+        "subspecies": "Cougar",
+        "age" : 2,
+    },
+    "Delilah": {
+        "id" : 2,
+        "subspecies": "Tiger",
+        "age" : 7,
+    }
+}

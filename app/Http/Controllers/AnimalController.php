@@ -13,21 +13,60 @@ class AnimalController extends Controller
 
     public function getIndex(){
 
-        $animals = DB::table('animals')->get();
+        // $animals = DB::table('animals')->get();
 
-        return view('animals.index')
-                ->with('animals', $animals);
+
+
+        //
+        return view('animals.index');
+                // ->with('animals', $animals);
         // return 'Display all the animals';
+    }
+
+    public function getSearch(Request $request){
+        $searchResults = [];
+
+        $searchTerm = $request->input('searchTerm', null);
+
+
+
+        if ($searchTerm){
+
+          $animalsRawData = file_get_contents(database_path().'/testCats.json');
+          dump($animalsRawData);
+          $animals = json_decode($animalsRawData, true);
+          dump($animals);
+
+          foreach($animals as $name => $animal){
+            if ($request->has('caseSensitive')) {
+              $match = $title == $searchTerm;
+            } else {
+              $match = strtolower($title) == strtolower($searchTerm);
+            }
+
+            if ($match){
+              $searchResults[$name] = $animal;
+            }
+          }
+        }
+
+        return view('animals.search')->with([
+          'searchTerm' => '',
+          'caseSensitive' => $request->has('caseSensitive'),
+          'searchResults' => ''
+        ]);
     }
 
     public function getCreate(){
 
-        $sub_species_for_dropdown = Animal::subSpeciesForDropdown();
+        // $sub_species_for_dropdown = Animal::subSpeciesForDropdown();
+        //
+        // return view('animals.create')->with([
+        //     'sub_species_for_dropdown' => $sub_species_for_dropdown
+        // ]);
 
-        return view('animals.create')->with([
-            'sub_species_for_dropdown' => $sub_species_for_dropdown
-        ]);
-        // return 'Display form for adding animal';
+      //  return 'Display form for adding animal';
+        return view('animals.create');
     }
 
     public function postStore(Request $request){

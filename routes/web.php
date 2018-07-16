@@ -16,8 +16,10 @@ Route::get('/', function () {
 });
 
 Route::get('/animals', 'AnimalController@getIndex')->name('animals.index');
+Route::get('/animals/search', 'AnimalController@getSearch')->name('animals.search');
 Route::get('/animals/create', 'AnimalController@getCreate')->name('animals.create');
-Route::post('/animals', 'AnimalController@postStore')->name('animals.store');
+Route::post('/animals/create', 'AnimalController@postStore')->name('animals.store');
+//Route::post('/animals', 'AnimalController@postStore')->name('animals.store');
 Route::get('/animals/{id}', 'AnimalController@getShow')->name('animals.show');
 Route::get('/animals/{id}/edit', 'AnimalController@getEdit')->name('animals.edit');
 Route::put('/animals/{id}', 'AnimalController@putUpdate')->name('animals.update');
