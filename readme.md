@@ -2,4 +2,4 @@
 
 ## *Work in progress.*
 
-A Laravel application built for a wildcat sanctuary in Texas.
+A class-project turned project I can't stop working on. Web-app with full CRUD functionality for an exotic animal sanctuary in Texas.
