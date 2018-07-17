@@ -2,19 +2,19 @@
 
 @section('title')
     Animal Index
-@stop
+@endsection
 
 @section('head')
-    <!-- Add animal-specific style file here -->
-@stop
+
+@endsection
 
 @section('main_content')
     <h1>All the animals</h1>
 
 
 
-@stop
+@endsection
 
 @section('scripts')
     <!-- Add animal-specific scripts here -->
-@stop
+@endsection
