@@ -2,7 +2,7 @@
 
 @section('title')
     Add an Animal
-@endsection
+@stop
 
 @section('head')
     <style>
@@ -90,8 +90,8 @@
 
         <!-- <input type='submit' value='Submit'> -->
     </form>
-@endsection
+@stop
 
 @section('scripts')
     <!-- Add animal-specific scripts here -->
-@endsection
+@stop

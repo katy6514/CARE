@@ -39,12 +39,17 @@ Route::get('/debugbar', function() {
 # Local Tools
 if(App::environment('local')){
     Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
-    Route::get('/drop', function(){
-        DB::statement('DROP database CARE');
-        DB::statement('CREATE database CARE');
 
-        return 'Dropped CARE; created CARE';
+    Route::get('/drop', function(){
+
+        $db = Config::get('database.connections.mysql.database');
+
+        DB::statement('DROP database '.$db);
+        DB::statement('CREATE database '.$db);
+
+        return 'Dropped '.$db.'; created '.$db.'.';
     });
+
     Route::get('/debug', function() {
 
        echo '<pre>';
