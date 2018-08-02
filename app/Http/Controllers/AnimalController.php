@@ -5,6 +5,8 @@ namespace CARE\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use CARE\Animal;
+use Faker\Factory as Faker;
+
 
 use CARE\Http\Controllers\Controller;
 
@@ -57,16 +59,43 @@ class AnimalController extends Controller
         ]);
     }
 
+    public function practice(){
+        $faker = Faker::create();
+        $dates = array();
+        for ($j=0; $j < 3; $j++) {
+            array_push($dates, $faker->date($format = 'Y-m-d', $max = 'now'));
+        }
+        sort($dates);
+
+        $animal = new Animal();
+
+        $animal->name = "Cricket";
+        $animal->sex = "Female";
+        $animal->sub_species = "Lion";
+        $animal->bio = "Prefers to go to bed at 8:30pm";
+        $animal->image = $faker->imageUrl($width = 300, $height = 300, 'cats');
+        $animal->enclosure = "F";
+        $animal->birth_date = $dates[0];
+        $animal->care_date = $dates[1];
+        $animal->rainbow_date = $dates[2];
+
+        $animal->save();
+
+        dump('Added: '.$animal->name);
+
+    }
+
+
     public function getCreate(){
 
-        // $sub_species_for_dropdown = Animal::subSpeciesForDropdown();
-        //
-        // return view('animals.create')->with([
-        //     'sub_species_for_dropdown' => $sub_species_for_dropdown
-        // ]);
+        $sub_species_for_dropdown = Animal::subSpeciesForDropdown();
+
+        return view('animals.create')->with([
+            'sub_species_for_dropdown' => $sub_species_for_dropdown
+        ]);
 
       //  return 'Display form for adding animal';
-        return view('animals.create');
+        //return view('animals.create');
     }
 
     public function postStore(Request $request){
