@@ -5,12 +5,17 @@
 @stop
 
 @section('head')
-    <style>
+    <!-- <style>
         main form{
             width:800px;
             margin:20px auto 100px auto;
         }
-    </style>
+    </style> -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
 @endsection
 
 @section('main_content')
@@ -67,6 +72,10 @@
                 <input type="radio" name="sex" value="female"> Female -->
         </div>
 
+        <div class='form-group'>
+            {!! Form::label('birth_date:') !!}
+            <input class="date form-control" type="text" id="birth_date" name="birth_date" value="{{ old('birth_date') }}" placeholder="MM/DD/YYYY">
+        </div>
 
         <div class='form-group'>
             {!! Form::label('bio:') !!}
@@ -81,6 +90,7 @@
             <!-- <label for='bio'>Bio: </label>
                 <textarea cols="40" rows="5" name="bio"></textarea> -->
         </div>
+
 
         <div class='form-group'>
             {!! Form::label('enclosure:') !!}
@@ -112,4 +122,9 @@
 
 @section('scripts')
     <!-- Add animal-specific scripts here -->
+    <script type="text/javascript">
+        $('.date').datepicker({
+           format: 'mm-dd-yyyy'
+         });
+    </script>
 @stop

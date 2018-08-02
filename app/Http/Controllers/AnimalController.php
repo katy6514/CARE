@@ -76,7 +76,7 @@ class AnimalController extends Controller
         $animal->image = $faker->imageUrl($width = 300, $height = 300, 'cats');
         $animal->enclosure = "F";
         $animal->birth_date = $dates[0];
-        $animal->care_date = $dates[1];
+        $animal->care_date = Carbon\Carbon::now()->toDateTimeString();
         $animal->rainbow_date = $dates[2];
 
         $animal->save();
@@ -107,6 +107,9 @@ class AnimalController extends Controller
             'sub_species' => 'required',
             'enclosure' => 'required',
         ]);
+
+        //$animal->care_date = Carbon\Carbon::now()->toDateTimeString();
+
 
         dump($request);
 
