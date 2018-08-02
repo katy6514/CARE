@@ -21,6 +21,12 @@
 @section('main_content')
     <h1>Add a Cat</h1>
 
+    @if(count($errors) > 0)
+        <div class="alert alert-danger" role="alert">
+            There were some problems submitting the form, please see below for more information.
+        </div>
+    @endif
+
     <form method='POST' action='/animals/create'>
         {{ csrf_field() }}
         <!-- <input type='text' name='name'> -->
@@ -54,7 +60,7 @@
                         @endforeach
                     </div>
                 @endif
-            <select name='sub_species' id='sub_species'>
+            <select name='sub_species' id='sub_species' value="{{ old('sub_species') }}">
                 <option value="" disabled selected>Select...</option>
                 @foreach($sub_species_for_dropdown as $sub_species)
                     <option value='{{ $sub_species }}'> {{ $sub_species }} </option>
