@@ -42,9 +42,15 @@
 
         <div class='form-group'>
             {!! Form::label('sub_species:') !!}
+                @if($errors->get('sub_species'))
+                    <div class="alert alert-danger" role="alert">
+                        @foreach($errors -> get('sub_species') as $error)
+                            {{ $error }}
+                        @endforeach
+                    </div>
+                @endif
             <select name='sub_species' id='sub_species'>
                 <option value="" disabled selected>Select...</option>
-
                 @foreach($sub_species_for_dropdown as $sub_species)
                     <option value='{{ $sub_species }}'> {{ $sub_species }} </option>
                 @endforeach

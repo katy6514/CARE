@@ -104,9 +104,11 @@ class AnimalController extends Controller
         $this->validate($request,[
             'name' => 'required',
             'sex' => 'required',
+            'sub_species' => 'required',
             'enclosure' => 'required',
         ]);
 
+        dump($request);
 
 
         $name = $request->input('name');
